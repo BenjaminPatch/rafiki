@@ -21,8 +21,10 @@ Once compiled, initiate the server by executing ./rafiki. The usage instructions
     - statfile: The ports which the program is to listen on (if port = 0, use ephemeral port). Each line has a port then information about the associated with that port. When a player connects to the server with an unused game name, then the server will start a game based on the rules associated with the port the player connected on.
     - timeout: How long the server should wait for when a client disconnects before ending the game.
 ![Server Initialisation](https://i.gyazo.com/dedc6497d467817d60f3de99fe042ccb.png)
+
 **Figure 1: the port is initialised and is listening on ports 63654 and 3004**
 ![SIGINT](https://i.gyazo.com/33b3305dfddf71083408c402b740ee6e.png)
+
 **Figure 2: SIGINT causes the server to close listening on all ports, re-read the statfile and start listening on those ports.**
 **If you want to shut down the server, SIGTERM or SIGKILL must be sent to the server.**
 
@@ -40,6 +42,7 @@ zazu keyfile port "reconnect" reconnectID
     - reconnectID: The reconnect ID sent by server at start of game
 
 ![Game Started](https://i.gyazo.com/d88fae94b6c21c45a941972320f7d54b.png)
+
 **Figure 3: When enough players have joined a given game, the server will begin sending data about the game.**
 **The first message sent will be the reconnect ID, which the player can save to use for reconnecting, should player disconnect.**
 **After RID is sent, basic player info and info on each card is output until all the starting cards have been drawn.**
@@ -47,6 +50,7 @@ zazu keyfile port "reconnect" reconnectID
 The format for the card info is: Card NUM:ColourDiscount/Points/pricePurp,priceBlue,priceYellow,PriceRed
 
 ![prompting User](https://i.gyazo.com/46b1978401b1213cce460a290b0ca1cf.png)
+
 **Figure 4: Now that all the cards have been drawn, the first player will be prompted for a move**
 
 Valid moves are: *purchase*, *take*, or *wild*
