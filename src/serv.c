@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
     server = malloc(sizeof(struct ServerData));
     check_args(argc, argv, server);
     setup_sigterm();
-    setup_sigint();
+    //setup_sigint();
     ignore_sigpipe();
     server->headGame = NULL;
     server->deckFileName = argv[2];
@@ -391,13 +391,13 @@ void* listen_port(void* gameInfo) {
     addrSize = sizeof(struct sockaddr_in); 
 
     while (1) {
-        if ((clientSocket = accept(sockFd, (struct sockaddr*)&newAddr,
-                &addrSize)) == -1) {
-            exit_server(SYS_CALL);
-        }
         if (flag) {
             flag = 0;
             pthread_exit(NULL);
+        }
+        if ((clientSocket = accept(sockFd, (struct sockaddr*)&newAddr,
+                &addrSize)) == -1) {
+            exit_server(SYS_CALL);
         }
         struct ClientInfo* thisClient = malloc(sizeof(struct ClientInfo));
         thisClient->connected = true;

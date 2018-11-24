@@ -220,7 +220,7 @@ enum PlayerExitCode play_game(struct SessionInfo* sessionInfo) {
     } else {
         exit_game(COMM_ERROR, 0);
     }
-    sessionInfo->game->players = malloc(sizeof(struct Player*));
+    sessionInfo->game->players = malloc(sizeof(struct Player) * sessionInfo->game->playerCount);
     for (int i = 0; i < sessionInfo->game->playerCount; i++) {
         sessionInfo->game->players[i].playerId = i;
         for (int j = 0; j < TOKEN_MAX; j++) {
