@@ -15,9 +15,9 @@
 #include <pthread.h>
 #include <semaphore.h>
 
-#include <util.h>
-#include <server.h>
-#include <deck.h>
+#include "../library/lib/util.h"
+#include "../library/lib/server.h"
+#include "../library/lib/deck.h"
 
 #define BUFF 256
 

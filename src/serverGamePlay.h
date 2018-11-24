@@ -5,11 +5,11 @@
 #include <pthread.h>
 #include <errno.h>
 
-#include <util.h>
-#include <server.h>
-#include <game.h>
-#include <protocol.h>
-#include <deck.h>
+#include "../library/lib/util.h"
+#include "../library/lib/server.h"
+#include "../library/lib/game.h"
+#include "../library/lib/protocol.h"
+#include "../library/lib/deck.h"
 
 #include "serverStructs.h"
 #include "getKey.h"

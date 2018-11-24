@@ -694,7 +694,7 @@ void handle_disco_message(struct SessionInfo* sessionInfo, char* message) {
     } else {
         char* discoMessage = 
                 print_disco_message(disconnectedPlayer);
-        printf(discoMessage);
+        printf("%s", discoMessage);
         fflush(stdout);
         player_disconnect(discoMessage);
         
@@ -725,7 +725,7 @@ void handle_invalid_message(struct SessionInfo* sessionInfo, char* message) {
     } else {
         char* invalidMessage = 
                 print_invalid_message(invalidMessagePlayer);
-        printf(invalidMessage);
+        printf("%s", invalidMessage);
         fflush(stdout);
         free(invalidMessage);
     }
