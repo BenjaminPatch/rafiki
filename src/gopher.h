@@ -11,8 +11,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 
-#include <game.h>
-#include <util.h>
+#include "../library/lib/game.h"
+#include "../library/lib/util.h"
 
 #define LENGTH_OF_FIRST_LINE 37
 #define BUF 256
